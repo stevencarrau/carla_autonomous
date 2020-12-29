@@ -132,7 +132,7 @@ def main():
         camera_transform3 = carla.Transform(carla.Location(x=-1.0, y=1.5, z=1.4),carla.Rotation(pitch=-2, roll=0, yaw=-75))
         camera_bp3.set_attribute('fov', '120')
         camera3 = world.spawn_actor(camera_bp3, camera_transform3, attach_to=pedestrian)
-        camera3.listen(lambda image: image.save_to_disk('_out/pedview/%06d.png' % image.frame))
+        #camera3.listen(lambda image: image.save_to_disk('_out/pedview/%06d.png' % image.frame))
 
         # time.sleep(5)
         start_t = time.time()
