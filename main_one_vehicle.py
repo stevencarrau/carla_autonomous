@@ -136,8 +136,8 @@ def main():
 
         # time.sleep(5)
         start_t = time.time()
-        vehicle.apply_control(carla.VehicleControl(throttle=0.45))
-        vehicle2.apply_control(carla.VehicleControl(throttle=0.45))
+        vehicle.apply_control(carla.VehicleControl(throttle=0.95))
+        vehicle2.apply_control(carla.VehicleControl(throttle=0.95))
         vehicle_pos2 = vehicle2.get_location()
 
         # Front Stop Control Loop
