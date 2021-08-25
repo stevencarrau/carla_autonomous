@@ -1,3 +1,5 @@
+import os
+
 import carla
 import queue
 import numpy as np
@@ -139,7 +141,7 @@ def main():
         vehicle.apply_control(control)
 
         frame_id = world.tick()
-        sim_time += 0.05
+        sim_time += delta_time
         results.append((sim_time, get_position(frame_id, vehicle.id)))
         index += 1
 
@@ -171,6 +173,15 @@ def main():
         if frame_no%10 == 0:
             print('Frame:%d'%frame_no)
         q_i.save_to_disk('_out/driverviewback/%06d.png' % frame_no)
+
+    if len(image_queue):
+        os.system('ffmpeg -f image2 -s 1920x1080 -pattern_type glob -framerate 30 -i \'_out/overview/*.png\' Overview_output.mp4')
+
+    if len(driver_queue):
+        os.system('ffmpeg -f image2 -s 1920x1080 -pattern_type glob -framerate 30 -i \'_out/driverview/*.png\' Driver_output.mp4')
+
+    if len(driver2_queue):
+        os.system('ffmpeg -f image2 -s 1920x1080 -pattern_type glob -framerate 30 -i \'_out/driverviewback/*.png\' DriverBack_output.mp4')
 
 
 

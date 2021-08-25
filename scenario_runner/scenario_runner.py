@@ -590,7 +590,9 @@ def main():
         arguments.reloadWorld = True
 
     if arguments.agent:
-        arguments.sync = True
+        arguments.sync = False
+    else:
+        arguments.sync = False
 
     scenario_runner = None
     result = True

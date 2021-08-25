@@ -14,6 +14,8 @@ from agents.navigation.basic_agent import BasicAgent
 
 from srunner.autoagents.autonomous_agent import AutonomousAgent
 from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+import queue
+driver_queue = queue.Queue()
 
 
 class NpcAgent(AutonomousAgent):
